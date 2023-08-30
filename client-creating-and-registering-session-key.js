@@ -99,7 +99,7 @@ const server = async (sessionPublicKey) => {
   })
 
   // Serialize the session key
-  return await sessionKeyProvider.serializeSessionKeyParams(sessionPrivateKey)
+  return await sessionKeyProvider.serializeSessionKeyParams()
 }
 
 const sessionPrivateKey = generatePrivateKey()
