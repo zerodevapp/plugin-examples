@@ -144,8 +144,8 @@ const client = async (serializedSessionKey) => {
 }
 
 const main = async () => {
-  const publicKey = await clientGenerateKey()
-  const serializedSessionKey = await server(publicKey)
+  const sessionPublicKey = await clientGenerateKey()
+  const serializedSessionKey = await server(sessionPublicKey)
   await client(serializedSessionKey)
 }
 
