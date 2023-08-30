@@ -1,6 +1,6 @@
 # Session Key Examples
 
-Examples of using session keys.
+Examples of using session keys.  Please refer to [this doc](https://docs.zerodev.app/use-wallets/use-session-keys) to learn more about session keys.
 
 ## Setup
 
@@ -35,3 +35,7 @@ node send-session-key-over-network.js
 ```bash
 node register-session-key-over-network.js
 ```
+
+## License
+
+MIT
