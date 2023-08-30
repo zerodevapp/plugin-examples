@@ -108,7 +108,7 @@ const main = async () => {
     }),
   })
 
-  await ecdsaProvider.waitForUserOperationTransaction(hash)
+  await sessionKeyProvider.waitForUserOperationTransaction(hash)
 
   // Check how many NFTs we have
   const balanceOf = await publicClient.readContract({
