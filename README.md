@@ -1,6 +1,6 @@
-# Session Key Examples
+# ZeroDev Session Key Examples
 
-Examples of using session keys.  Please refer to [this doc](https://docs.zerodev.app/use-wallets/use-session-keys) to learn more about session keys.
+Examples of using ZeroDev session keys.  Please refer to [this doc](https://docs.zerodev.app/use-wallets/use-session-keys) to learn more about session keys and these examples.
 
 ## Setup
 
@@ -14,27 +14,11 @@ export PRIVATE_KEY=`node -e "console.log('0x' + require('crypto').randomBytes(32
 
 ## Examples
 
-There are three examples in this directory.
+There are three examples in this directory.  Each example is a standalone script that can be run with `node <script-name>.js`.
 
-- Creating a session key locally
-
-```bash
-node session-key.js
-```
-
-- Creating and sending a session key over the network
-  - This involves transmitting a private key over a network
-
-```bash
-node send-session-key-over-network.js
-```
-
-- Registering a session key over the network
-  - This is the more secure flow since it doesn't transmite private keys over the network.
-
-```bash
-node register-session-key-over-network.js
-```
+- [Creating a session key locally](https://github.com/zerodevapp/session-key-examples/blob/main/session-key.js)
+- [Server creating a session key and sending it to the client](https://github.com/zerodevapp/session-key-examples/blob/main/server-creating-session-key.js).
+- [Client creating a session key and registering it with the server](https://github.com/zerodevapp/session-key-examples/blob/main/client-creating-and-registering-session-key.js).
 
 ## License
 
