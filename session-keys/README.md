@@ -4,7 +4,7 @@ Please refer to [this doc](https://docs.zerodev.app/use-wallets/use-session-keys
 
 ## Setup
 
-- Create a project for Polygon Mumbai
+- [Create a project](https://dashboard.zerodev.app/) for Polygon Mumbai
 - Set up environment variables
 
 ```bash
