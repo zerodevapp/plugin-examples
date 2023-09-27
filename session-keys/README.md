@@ -14,6 +14,8 @@ export PRIVATE_KEY=`node -e "console.log('0x' + require('crypto').randomBytes(32
 
 - Install dependencies
 
+Run this in the root directory:
+
 ```bash
 npm i
 ```
@@ -23,5 +25,5 @@ npm i
 There are three examples in this directory.  Each example is a standalone script that can be run with `node <script-name>.js`.
 
 - [Creating a session key locally](https://github.com/zerodevapp/session-key-examples/blob/main/session-keys/session-key.js)
-- [Server creating a session key and sending it to the client](https://github.com/zerodevapp/session-key-examples/blob/main/session-keys/server-creating-session-key.js).
-- [Client creating a session key and registering it with the server](https://github.com/zerodevapp/session-key-examples/blob/main/session-keys/client-creating-and-registering-session-key.js).
+- [Owner creating a session key and sending it to the agent](https://github.com/zerodevapp/session-key-examples/blob/main/session-keys/owner-creating-session-key.js).
+- [Agent creating a session key and registering it with the owner](https://github.com/zerodevapp/session-key-examples/blob/main/session-keys/agent-registering-session-key.js).
