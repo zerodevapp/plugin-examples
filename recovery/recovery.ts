@@ -32,7 +32,7 @@ const main = async () => {
       [await guardian1.getAddress()]: 1,
       [await guardian2.getAddress()]: 1,
     },
-    threshold: 2,
+    threshold: 1,
     delaySeconds: 0,
   }
 
