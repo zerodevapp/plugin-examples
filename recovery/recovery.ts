@@ -28,7 +28,8 @@ const main = async () => {
   // In this example, we set it up so that either one of the guardians
   // can recover the account for the user.
   const recoveryData = {
-    guardians: {  // Guardian addresses with their weights
+    // Guardian addresses with their weights
+    guardians: {
       [await guardian1.getAddress()]: 1,
       [await guardian2.getAddress()]: 1,
     },
@@ -52,7 +53,15 @@ const main = async () => {
   console.log('Recovery enabled')
 
   // Initiate a recovery request
-  const recoveryId = await recoveryProvider.initiateRecovery(await newOwner.getAddress())
+  const requesterRecoveryProvider = await RecoveryProvider.init({
+    projectId,
+    opts: {
+      accountConfig: {
+        accountAddress: address,
+      },
+    },
+  })
+  const recoveryId = await requesterRecoveryProvider.initiateRecovery(await newOwner.getAddress())
 
   console.log('Recovery initiated')
 
