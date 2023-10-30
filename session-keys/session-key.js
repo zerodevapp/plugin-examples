@@ -57,7 +57,7 @@ const main = async () => {
       args: [address],
       // conditions
       conditions: [
-        ParamCondition.Equal,
+        ParamCondition.EQUAL,
       ],
     }),
   ]

@@ -1,6 +1,6 @@
-const { ECDSAProvider, SessionKeyProvider, Operation, ParamCondition, constants } = require('@zerodev/sdk')
+const { ECDSAProvider, SessionKeyProvider, Operation, ParamCondition, constants, getPermissionFromABI } = require('@zerodev/sdk')
 const { LocalAccountSigner } = require("@alchemy/aa-core")
-const { encodeFunctionData, parseAbi, createPublicClient, http, getFunctionSelector, pad, zeroAddress, getAddress } = require('viem')
+const { encodeFunctionData, parseAbi, createPublicClient, http, zeroAddress, getAddress } = require('viem')
 const { polygonMumbai } = require('viem/chains')
 const { generatePrivateKey } = require('viem/accounts')
 
@@ -40,35 +40,27 @@ const server = async () => {
   // contract/function.  To create a key that can interact with multiple
   // contracts/functions, set up one permission for each.
   const permissions = [
-    {
+    getPermissionFromABI({
       // Target contract to interact with
       target: contractAddress,
       // Maximum value that can be transferred.  In this case we
       // set it to zero so that no value transfer is possible.
       valueLimit: 0,
-      // The function (as specified with a selector) that can be called on
-      sig: getFunctionSelector(
-        "mint(address)"
-      ),
       // Whether you'd like to call this function via CALL or DELEGATECALL.
       // DELEGATECALL is dangerous -- don't use it unless you know what you
       // are doing.
       operation: Operation.Call,
-      // Each "rule" is a condition on a parameter.  In this case, we only
-      // allow for minting NFTs to our own account.
-      rules: [
-        {
-          // The condition in this case is "EQUAL"
-          condition: ParamCondition.EQUAL,
-          // The offset of the parameter is 0 since it's the first parameter.
-          // We will simplify this later.
-          offset: 0,
-          // We pad the address to be the correct size.
-          // We will simplify this later.
-          param: pad(address, { size: 32 }),
-        },
+      // abi
+      abi: contractABI,
+      // function name
+      functionName: 'mint',
+      // arguments
+      args: [address],
+      // conditions
+      conditions: [
+        ParamCondition.EQUAL,
       ],
-    },
+    }),
   ]
 
   const sessionKeyProvider = await SessionKeyProvider.init({
