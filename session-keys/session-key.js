@@ -1,4 +1,4 @@
-const { ECDSAProvider, SessionKeyProvider, Operation, ParamCondition, constants, getPermissionFromABI } = require('@zerodev/sdk')
+const { ECDSAProvider, SessionKeyProvider, Operation, ParamOperator, constants, getPermissionFromABI } = require('@zerodev/sdk')
 const { LocalAccountSigner } = require("@alchemy/aa-core")
 const { encodeFunctionData, parseAbi, createPublicClient, http, zeroAddress, getAddress } = require('viem')
 const { polygonMumbai } = require('viem/chains')
@@ -54,10 +54,13 @@ const main = async () => {
       // function name
       functionName: 'mint',
       // arguments
-      args: [address],
-      // conditions
-      conditions: [
-        ParamCondition.EQUAL,
+      args: [
+        {
+          // In this case, we are saying that the address must be equal
+          // to the given value.
+          operator: ParamOperator.EQUAL,
+          value: address,
+        }
       ],
     }),
   ]
