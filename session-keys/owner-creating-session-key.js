@@ -1,4 +1,4 @@
-const { ECDSAProvider, SessionKeyProvider, Operation, ParamOperator, constants, getPermissionFromABI } = require('@zerodev/sdk')
+const { ECDSAProvider, SessionKeyProvider, ParamOperator, constants, getPermissionFromABI } = require('@zerodev/sdk')
 const { LocalAccountSigner } = require("@alchemy/aa-core")
 const { encodeFunctionData, parseAbi, createPublicClient, http, zeroAddress, getAddress } = require('viem')
 const { polygonMumbai } = require('viem/chains')
@@ -46,15 +46,12 @@ const server = async () => {
       // Maximum value that can be transferred.  In this case we
       // set it to zero so that no value transfer is possible.
       valueLimit: 0,
-      // Whether you'd like to call this function via CALL or DELEGATECALL.
-      // DELEGATECALL is dangerous -- don't use it unless you know what you
-      // are doing.
-      operation: Operation.Call,
-      // abi
+      // Contract abi
       abi: contractABI,
-      // function name
+      // Function name
       functionName: 'mint',
-      // arguments
+      // An array of conditions, each corresponding to an argument for
+      // the function.
       args: [
         {
           // In this case, we are saying that the address must be equal
