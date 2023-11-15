@@ -5,6 +5,7 @@ Please refer to [this doc](https://docs.zerodev.app/use-wallets/use-session-keys
 ## Setup
 
 - [Create a project](https://dashboard.zerodev.app/) for Polygon Mumbai
+  - Make sure you [set up gas sponsoring policies](https://docs.zerodev.app/use-wallets/pay-gas-for-users) to sponsor all UserOps.
 - Set up environment variables
 
 ```bash
