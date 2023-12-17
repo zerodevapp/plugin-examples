@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@zerodev/sdk": "^4.3.0"
+    "@zerodev/sdk": "^4.5.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
